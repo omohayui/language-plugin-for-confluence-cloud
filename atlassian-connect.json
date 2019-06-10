@@ -1,0 +1,146 @@
+{
+    "key": "language-plugin-for-confluence-cloud",
+    "name": "Language plugin for confluence cloud",
+    "description": "Visitors can switch languages and browse content in their language.",
+    "vendor": {
+        "name": "omohayui",
+        "url": "http://www.omohayui.com/"
+    },
+    "baseUrl": "{{localBaseUrl}}",
+    "links": {
+        "self": "{{localBaseUrl}}/atlassian-connect.json",
+        "homepage": "{{localBaseUrl}}/atlassian-connect.json"
+    },
+    "authentication": {
+        "type": "jwt"
+    },
+    "lifecycle": {
+        "installed": "/installed"
+    },
+    "scopes": [
+        "READ"
+    ],
+    "modules": {
+        "dynamicContentMacros": [{
+            "key": "language",
+            "url": "/v1/dispatchLanguage?macroId={macro.id}&language={language}&pageTitle={pageTitle}&pageId={page.id}&pageVersion={page.version}",
+            "description": {
+                "value": "Render body that chosen language."
+            },
+            "documentation": {
+                "url" : "TODO"
+            },
+            "categories": ["navigation"],
+            "outputType": "block",
+            "bodyType": "rich-text",
+            "name": {
+                "value": "Language Macro"
+            },
+            "parameters": [
+                {
+                    "identifier": "language",
+                    "name": {
+                        "value": "Language"
+                    },
+                    "type": "enum",
+                    "required": true,
+                    "multiple": false,
+                    "defaultValue": "ja",
+                    "values": ["ja","en","zh","ko"],
+                    "hidden": false
+                },
+                {
+                    "identifier": "pageTitle",
+                    "name": {
+                        "value": "pageTitle"
+                    },
+                    "type": "string",
+                    "required": false,
+                    "multiple": false,
+                    "hidden": false
+                }
+            ]
+        }],
+        "webItems": [
+            {
+                "key": "select-language-ja",
+                "location": "system.content.button",
+                "weight": 100,
+                "url": "/setLanguage?lang=ja",
+                "context": "addon",
+                "name": {
+                    "value": "Japanese"
+                },
+                "target": {
+                    "type": "inlinedialog",
+                    "options": {
+                        "width": "100px",
+                        "height": "50px",
+                        "offsetX": "30px",
+                        "offsetY": "20px"
+                    }
+                }
+            },
+            {
+                "key": "select-language-en",
+                "location": "system.content.button",
+                "weight": 90,
+                "url": "/setLanguage?lang=en",
+                "context": "addon",
+                "name": {
+                    "value": "English"
+                },
+                "target": {
+                    "type": "inlinedialog",
+                    "options": {
+                        "width": "100px",
+                        "height": "50px",
+                        "offsetX": "30px",
+                        "offsetY": "20px"
+                    }
+                }
+            },
+            {
+                "key": "select-language-zh",
+                "location": "system.content.button",
+                "weight": 80,
+                "url": "/setLanguage?lang=zh",
+                "context": "addon",
+                "name": {
+                    "value": "Chinese"
+                },
+                "target": {
+                    "type": "inlinedialog",
+                    "options": {
+                        "width": "100px",
+                        "height": "50px",
+                        "offsetX": "30px",
+                        "offsetY": "20px"
+                    }
+                }
+            },
+            {
+                "key": "select-language-ko",
+                "location": "system.content.button",
+                "weight": 70,
+                "url": "/setLanguage?lang=ko",
+                "context": "addon",
+                "name": {
+                    "value": "Korean"
+                },
+                "target": {
+                    "type": "inlinedialog",
+                    "options": {
+                        "width": "100px",
+                        "height": "50px",
+                        "offsetX": "30px",
+                        "offsetY": "20px"
+                    }
+                }
+            }
+        ]
+    },
+    "apiMigrations": {
+        "gdpr": true
+    }
+}
