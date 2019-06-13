@@ -27,7 +27,7 @@ export default function routes(app, addon) {
 
         // Selected Language?
         if (language != selected) {
-            res.send();
+            res.render('language');
             return;
         }
 
@@ -41,14 +41,14 @@ export default function routes(app, addon) {
                 //  If we've encountered errors, render an error screen.
                 if(err || (response.statusCode < 200 || response.statusCode > 299)) {
                     console.log(err);
-                    res.render('<strong>An error has occurred :( '+ response.statusCode +'</strong>');
+                    res.render('language');
                 }
 
                 //  Parse the response, and send the body through.
                 contents = JSON.parse(contents);
 
                 //  Render with required body.
-                res.render('language', { body : contents.body, pageTitle: pageTitle});
+                res.render('language', {body : contents.body, pageTitle: pageTitle});
             }
         );
     });
@@ -57,10 +57,10 @@ export default function routes(app, addon) {
         var lang = req.query['lang'];
         if (lang) {
             res.setHeader('Set-Cookie', ['docslang=' + lang]);
-            res.send('set ' + lang);
+            res.render('set-language', {lang : lang});
             return;
         }
-        res.send('not set');
+        res.render('set-language');
     });
 
     // Returns a HTTP client which can make calls to our host product.
