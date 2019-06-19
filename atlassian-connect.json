@@ -64,7 +64,7 @@
         "webItems": [
             {
                 "key": "select-language-ja",
-                "location": "system.content.button",
+                "location": "system.content.action",
                 "weight": 100,
                 "url": "/setLanguage?lang=ja",
                 "context": "addon",
@@ -83,8 +83,8 @@
             },
             {
                 "key": "select-language-en",
-                "location": "system.content.button",
-                "weight": 90,
+                "location": "system.content.action",
+                "weight": 200,
                 "url": "/setLanguage?lang=en",
                 "context": "addon",
                 "name": {
@@ -102,8 +102,8 @@
             },
             {
                 "key": "select-language-zh",
-                "location": "system.content.button",
-                "weight": 80,
+                "location": "system.content.action",
+                "weight": 300,
                 "url": "/setLanguage?lang=zh",
                 "context": "addon",
                 "name": {
@@ -121,8 +121,8 @@
             },
             {
                 "key": "select-language-ko",
-                "location": "system.content.button",
-                "weight": 70,
+                "location": "system.content.action",
+                "weight": 400,
                 "url": "/setLanguage?lang=ko",
                 "context": "addon",
                 "name": {
